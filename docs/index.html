@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>memory-eternal · UI restyle（衍生版）</title>
+<style>
+  :root{
+    --ink:#0f0f0f; --ink-2:#545557; --ink-3:#7f8287; --line:rgba(0,0,0,.08); --line-2:rgba(0,0,0,.04);
+    --bg:#ffffff; --bg-soft:#fafafa; --accent:#4176e6; --accent-soft:#e4edfd;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.7}
+  .wrap{max-width:1040px;margin:0 auto;padding:56px 24px 84px}
+  header{border-bottom:1px solid var(--line);padding-bottom:30px;margin-bottom:36px}
+  .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 12px}
+  h1{font-size:34px;font-weight:600;letter-spacing:-.02em;margin:0 0 12px;line-height:1.25}
+  .lede{font-size:15px;color:var(--ink-2);margin:0 0 22px;max-width:74ch}
+  .links{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 14px;border-radius:9px;border:1px solid var(--line);
+    font-size:13.5px;text-decoration:none;color:var(--ink-2);background:transparent}
+  .btn:hover{border-color:rgba(0,0,0,.18);color:var(--ink)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{filter:brightness(1.05);color:#fff}
+  h2{font-size:19px;font-weight:600;letter-spacing:-.01em;margin:44px 0 14px}
+  p{margin:0 0 14px}
+  .muted{color:var(--ink-3);font-size:13px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 8px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line-2)}
+  th{color:var(--ink-3);font-weight:500;font-size:12.5px}
+  code{font-family:"SF Mono",Consolas,monospace;font-size:.92em;background:rgba(127,127,127,.09);border-radius:4px;padding:1px 5px}
+  .shots{display:grid;gap:18px}
+  figure{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-soft)}
+  figure img{display:block;width:100%;height:auto}
+  figcaption{padding:11px 14px;font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line-2)}
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3)}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">DeepSeek Harness 插件 · 界面衍生版</p>
+    <h1>memory-eternal · UI restyle</h1>
+    <p class="lede">
+      把 AI 的「第二大脑」界面重做到与 DeepSeek Harness 主界面同一种语言：细线、留白、克制的状态色。
+      本仓库是 <a href="https://github.com/EternalNight996/memory-eternal">EternalNight996/memory-eternal</a>
+      的界面重构衍生版，<strong>原作者 EternalNight996</strong>，遵循 MIT License。只改客户端 UI 层，host 逻辑与数据格式未动。
+    </p>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/07vvvv/memory-eternal-ui-restyle">本仓库</a>
+      <a class="btn" href="https://github.com/EternalNight996/memory-eternal">上游原项目</a>
+      <a class="btn" href="https://github.com/07vvvv/memory-eternal-ui-restyle/releases">Releases</a>
+    </div>
+  </header>
+
+  <h2>改动摘要</h2>
+  <table>
+    <tr><th>文件</th><th>改动量</th><th>内容</th></tr>
+    <tr><td><code>src/client/index.tsx</code></td><td>+423 / −291</td><td>主界面与各面板的样式与结构</td></tr>
+    <tr><td><code>src/client/markdown.js</code></td><td>+24 / −22</td><td>正文排版去 emoji，改 CSS 色点/色条</td></tr>
+    <tr><td><code>web/index.html</code></td><td>+53 / −19</td><td>独立 web 页色板 → DSH 官方 token</td></tr>
+    <tr><td><code>tests/markdown.test.mjs</code></td><td>+12 / −12</td><td>断言同步</td></tr>
+  </table>
+  <p class="muted">构建产物同步重建：<code>lib/client.js</code>、<code>web/app.js</code>。单元测试 markdown 7/7、graph-lod 5/5 通过。</p>
+
+  <h2>界面</h2>
+  <div class="shots">
+    <figure><img src="./showcase/cards-light.png" alt="浅色主题知识卡页" /><figcaption>知识卡：大纲式侧栏 · 进度条指标 · 下划线搜索 · bento 卡片（首卡跨 2×2）</figcaption></figure>
+    <figure><img src="./showcase/cards-dark.png" alt="深色主题" /><figcaption>深色主题：状态色与主按钮用 <code>color-mix</code> 与 <code>label-primary-inverted</code> 自适应</figcaption></figure>
+    <figure><img src="./showcase/reader.png" alt="卡片阅读器" /><figcaption>卡片阅读器：小标题改用 CSS 色点 · 引用块用 2px 色条 · 元信息 chips 统一</figcaption></figure>
+    <figure><img src="./showcase/modal.png" alt="弹窗标题条" /><figcaption>弹窗：48px 标题条 + 34px 控制按钮（取代原先 26px 半透明浮条）</figcaption></figure>
+    <figure><img src="./showcase/entry.png" alt="侧边栏入口对照" /><figcaption>侧边栏入口：与官方「应用中枢」同款行（几何符号 <code>▤</code> + 36px 圆角行）</figcaption></figure>
+  </div>
+
+  <h2>安装</h2>
+  <p><code>dsh plugin --profile desktop add github:07vvvv/memory-eternal-ui-restyle</code></p>
+  <p class="muted">或下载 Release 附件解压后执行 <code>node build.mjs</code> 重建客户端产物。</p>
+
+  <footer>
+    上游项目与全部核心能力版权归 <strong>EternalNight996</strong> 所有；本衍生版仅重构客户端界面层。
+    改动明细见仓库 <code>NOTICE.md</code>。
+  </footer>
+</div>
+</body>
+</html>
