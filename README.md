@@ -22,23 +22,17 @@
 
 ## 界面
 
-浅色（知识卡）：大纲式侧栏、进度条指标、下划线搜索、bento 卡片（首卡跨 2×2）
+> 本仓库**不再存放界面截图**。截图会把截图者本机的用户目录、真实知识卡内容、API 余额一并拍进去，
+> 这类东西一旦进过提交就永久留在历史里。观感请对照上游仓库
+> [EternalNight996/memory-eternal](https://github.com/EternalNight996/memory-eternal) 的截图。
 
-![浅色知识卡](docs/showcase/cards-light.png)
+重构覆盖五处：
 
-深色主题：状态色与主按钮随主题自适应
-
-![深色主题](docs/showcase/cards-dark.png)
-
-卡片阅读器：小标题用 CSS 色点、引用块用 2px 色条
-
-![卡片阅读器](docs/showcase/reader.png)
-
-侧边栏入口（与官方「应用中枢」同款行）与弹窗标题条：
-
-![入口对照](docs/showcase/entry.png)
-
-![弹窗标题条](docs/showcase/modal.png)
+- **知识卡页**：大纲式侧栏、进度条指标、下划线搜索、bento 卡片（首卡跨 2×2）
+- **深色主题**：状态色与主按钮随主题自适应
+- **卡片阅读器**：小标题用 CSS 色点、引用块用 2px 色条
+- **侧边栏入口**：与官方「应用中枢」同款行
+- **弹窗标题条**：48px 标题条 + 34px 控制按钮
 
 ---
 
@@ -156,3 +150,6 @@ node tests/graph-lod.test.mjs     # 5/5
 MIT License。上游项目及全部核心能力版权归原作者 **EternalNight996** 所有；
 本仓库仅重构客户端界面层，不隶属上游官方发布，也不代表原作者立场。
 改动明细见 [`NOTICE.md`](NOTICE.md)。
+
+> `assets/support/` 下的微信支付码、赞赏码、群二维码均为**原作者**所有物，从上游仓库原样复制，
+> **本仓库不代收任何款项**。详见 [`assets/support/README.md`](assets/support/README.md)。

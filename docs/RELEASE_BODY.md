@@ -43,4 +43,5 @@ cd memory-eternal && node build.mjs   # 重建 lib/client.js 与 web/app.js
 
 ## 截图
 
-见仓库 `docs/showcase/`：浅色知识卡、深色主题、卡片阅读器、侧边栏入口对照、弹窗标题条。
+本仓库不存放界面截图。观感请对照上游仓库
+[EternalNight996/memory-eternal](https://github.com/EternalNight996/memory-eternal)。
